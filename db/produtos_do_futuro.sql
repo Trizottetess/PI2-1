@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23/10/2023 às 19:58
+-- Tempo de geração: 05/11/2023 às 21:08
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.0.28
 
@@ -37,9 +37,7 @@ CREATE TABLE `chat` (
 -- Despejando dados para a tabela `chat`
 --
 
-INSERT INTO `chat` (`id_message`, `content`, `author`) VALUES
-(22, 'Pew', 'Teste'),
-(23, 'Pew', 'Aoba');
+INSERT INTO `chat` (`id_message`, `content`, `author`);
 
 -- --------------------------------------------------------
 
@@ -49,18 +47,24 @@ INSERT INTO `chat` (`id_message`, `content`, `author`) VALUES
 
 CREATE TABLE `infovendedor` (
   `id_vend` int(11) NOT NULL,
-  `id_login` int(11) NOT NULL,
-  `facul` varchar(30) NOT NULL,
-  `curso` varchar(30) NOT NULL,
-  `area` varchar(30) NOT NULL,
-  `sub_area` varchar(30) NOT NULL,
-  `semestre` float NOT NULL,
-  `semestre_total` float NOT NULL,
-  `empregado` tinyint(1) NOT NULL,
-  `cidade` varchar(30) NOT NULL,
-  `genero` int(3) NOT NULL,
-  `nascimento` date NOT NULL
+  `email` varchar(255) DEFAULT NULL,
+  `faculdade` varchar(255) DEFAULT NULL,
+  `curso` varchar(255) DEFAULT NULL,
+  `area` varchar(255) DEFAULT NULL,
+  `subArea` varchar(255) DEFAULT NULL,
+  `inicioCurso` date DEFAULT NULL,
+  `finalCurso` date DEFAULT NULL,
+  `buscandoEmprego` tinyint(1) DEFAULT NULL,
+  `cidade` varchar(255) DEFAULT NULL,
+  `genero` varchar(255) DEFAULT NULL,
+  `nascimento` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `infovendedor`
+--
+
+INSERT INTO `infovendedor` (`id_vend`, `email`, `faculdade`, `curso`, `area`, `subArea`, `inicioCurso`, `finalCurso`, `buscandoEmprego`, `cidade`, `genero`, `nascimento`);
 
 -- --------------------------------------------------------
 
@@ -79,8 +83,7 @@ CREATE TABLE `login` (
 -- Despejando dados para a tabela `login`
 --
 
-INSERT INTO `login` (`id_log`, `nome_log`, `email_log`, `pw_log`) VALUES
-(41, 'Jake', 'jake@email.com', '25d55ad283aa400af464c76d713c07ad');
+INSERT INTO `login` (`id_log`, `nome_log`, `email_log`, `pw_log`) ;
 
 -- --------------------------------------------------------
 
@@ -136,19 +139,19 @@ ALTER TABLE `produto_ti`
 -- AUTO_INCREMENT de tabela `chat`
 --
 ALTER TABLE `chat`
-  MODIFY `id_message` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_message` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de tabela `infovendedor`
 --
 ALTER TABLE `infovendedor`
-  MODIFY `id_vend` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_vend` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `login`
 --
 ALTER TABLE `login`
-  MODIFY `id_log` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id_log` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT de tabela `produto_ti`
